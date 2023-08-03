@@ -1,0 +1,109 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* ---------------------------------------------------- */
+.header {
+    background: #F55A5A;
+    color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.44rem;
+    height: 3.8rem;
+    margin-bottom: 2.8rem;
+}
+
+.header--img {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.header--text {
+    font-size: 0.90381rem;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.06781rem;
+}
+
+/* ---------------------------------------------------- */
+
+.main {
+    max-width: 29.375rem;
+    height: 10.5rem;
+    margin: 1rem auto;
+    display: flex;
+    align-items: center;
+    /* border: 1px solid red; */
+}
+
+.main--image {
+    object-fit: cover;
+    width: 7.8125rem;
+    height: 10.5rem;
+    border-radius: 0.3125rem;
+}
+
+.main--text {
+    color: #2B283A;
+    margin-left: 1.2rem;
+}
+
+.main--text--loc {
+    font-size: 0.64rem;
+    display: flex;
+    align-items: center;
+}
+
+.main--text--country {
+    margin-left: 0.25rem;
+    font-size: 0.64rem;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.10881rem;
+}
+
+a {
+    margin-left: 0.75rem;
+    color: #918E9B;
+    font-size: 0.64rem;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration-line: underline;
+}
+
+.main--text--header {
+    font-size: 1.5625rem;
+    font-weight: 700;
+    line-height: normal;
+    margin-top: 0.44rem;
+}
+
+.main--text--dates {
+    font-size: 0.64rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-top: 0.44rem;
+}
+
+.main--text--des {
+    font-size: 0.64rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    margin-top: 0.56rem;
+}
+
+hr {
+    max-width: 29.5rem;
+    height: 0.06rem;
+    background: #F5F5F5;
+    margin: 0 auto;
+    border: none;
+}
