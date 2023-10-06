@@ -13,7 +13,7 @@ function App() {
 
   return (
     <main>
-        <Svg />
+        {/* <Svg /> */}
         {
           start ?
           <StartScreen start={start} startGame={startGame} /> 

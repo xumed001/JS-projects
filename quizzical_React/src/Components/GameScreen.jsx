@@ -28,20 +28,28 @@ export default function GameScreen() {
         shuffle(allAns)
         return (
             <>
-                <p>{he.decode(item.question)}</p>
-                <div className="game-screen--ans">
-                    <input type="radio" id="contactChoice1" value="ans1" />
-                    <label htmlFor="contactChoice1">{he.decode(allAns[0])}</label>
+                <p className="game--question">{he.decode(item.question)}</p>
+                <ul className="game-screen--ans">
+                    <li>
+                        <input type="radio" className="radio-ans" name="answers" id="Choice1" value="ans1" />
+                        <label htmlFor="contactChoice1">{he.decode(allAns[0])}</label>
+                    </li>
 
-                    <input type="radio" id="contactChoice2" value="ans2" />
-                    <label htmlFor="contactChoice2">{he.decode(allAns[1])}</label>
+                    <li>
+                        <input type="radio" className="radio-ans" name="answers" id="Choice2" value="ans2" />
+                        <label htmlFor="contactChoice2">{he.decode(allAns[1])}</label>
+                    </li>
 
-                    <input type="radio" id="contactChoice3" value="ans3" />
-                    <label htmlFor="contactChoice3">{he.decode(allAns[2])}</label>
+                    <li>
+                        <input type="radio" className="radio-ans" name="answers" id="Choice3" value="ans3" />
+                        <label htmlFor="contactChoice3">{he.decode(allAns[2])}</label>
+                    </li>
                     
-                    <input type="radio" id="contactChoice4" value="ans4" />
-                    <label htmlFor="contactChoice4">{he.decode(allAns[3])}</label>
-                </div>
+                    <li>
+                        <input type="radio" className="radio-ans" name="answers" id="Choice4" value="ans4" />
+                        <label htmlFor="contactChoice4">{he.decode(allAns[3])}</label>
+                    </li>
+                </ul>
             </>
         )
     })
@@ -54,7 +62,7 @@ export default function GameScreen() {
                 loading ? (
                     'Loading...'
                 ) : (
-                    <div className="game-screen--q">
+                    <div className="game-screen--qna">
                         {triviaQnA}
                     </div>
                 )
@@ -62,3 +70,4 @@ export default function GameScreen() {
         </div>     
     )
 }
+
