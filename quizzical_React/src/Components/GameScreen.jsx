@@ -22,31 +22,32 @@ export default function GameScreen() {
         }
     }
 
-    const triviaQnA = triviaData?.map((item) => {
+    const triviaQnA = triviaData?.map((item, index) => {
         const allAns = item.incorrect_answers
         allAns.push(item.correct_answer)
         shuffle(allAns)
+        let lableName = `answer${index}`
         return (
             <>
                 <p className="game--question">{he.decode(item.question)}</p>
                 <ul className="game-screen--ans">
                     <li>
-                        <input type="radio" className="radio-ans" name="answers" id="Choice1" value="ans1" />
+                        <input type="radio" className="radio-ans" name={lableName} id="Choice1" value="ans1" />
                         <label htmlFor="contactChoice1">{he.decode(allAns[0])}</label>
                     </li>
 
                     <li>
-                        <input type="radio" className="radio-ans" name="answers" id="Choice2" value="ans2" />
+                        <input type="radio" className="radio-ans" name={lableName} id="Choice2" value="ans2" />
                         <label htmlFor="contactChoice2">{he.decode(allAns[1])}</label>
                     </li>
 
                     <li>
-                        <input type="radio" className="radio-ans" name="answers" id="Choice3" value="ans3" />
+                        <input type="radio" className="radio-ans" name={lableName} id="Choice3" value="ans3" />
                         <label htmlFor="contactChoice3">{he.decode(allAns[2])}</label>
                     </li>
                     
                     <li>
-                        <input type="radio" className="radio-ans" name="answers" id="Choice4" value="ans4" />
+                        <input type="radio" className="radio-ans" name={lableName} id="Choice4" value="ans4" />
                         <label htmlFor="contactChoice4">{he.decode(allAns[3])}</label>
                     </li>
                 </ul>
@@ -54,7 +55,7 @@ export default function GameScreen() {
         )
     })
 
-    console.log(triviaData)
+    // console.log(triviaData)
 
     return (
         <div className="game-screen-main">

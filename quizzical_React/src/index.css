@@ -19,7 +19,7 @@ ul {
   font-family: 'Karla', sans-serif;
 }
 
-.blob-top {
+/* .blob-top {
   max-width: 100%;
   position: absolute;
   transform: rotate(16deg);
@@ -33,7 +33,7 @@ ul {
   transform: rotate(-2deg);
   bottom: -8rem;
   left: -8rem;
-}
+} */
 
 .start-screen {
   /* border: 1px solid red; */
@@ -50,9 +50,9 @@ ul {
 }
 
 .start-screen--header {
-  font-size: 1.95rem;
+  font-size: 3rem;
   text-align: center;
-  font-weight: 700;
+  font-weight: 500;
   line-height: normal;
   margin-bottom: 0.44rem;
 }
@@ -60,20 +60,20 @@ ul {
 .start-screen--text {
   /* border: 1px solid red; */
   text-align: center;
-  font-family: Inter;
+  font-family: Karla;
   font-size: 1rem;
   line-height: normal;
 }
 
 .start-screen--button {
-  margin-top: 1.8rem;
-  width: 12rem;
+  margin: 1.4rem auto;
+  width: 10rem;
   height: 3.25rem;
   border-radius: 0.9375rem;
   border: none;
   background: #4d5b9e;
   color: white;
-  font-family: Inter;
+  font-family: Karla;
   font-size: 1rem;
 }
 
@@ -86,50 +86,37 @@ ul {
 
 .game-screen--qna {
   margin: 2rem 0;
+
   /* border: 1px solid red; */
 }
 
 .game--question {
   color: #293264;
   font-family: Karla;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
   padding: 0.8rem 0;
 }
 
-@media (min-width: 786px) {
-  .game--question {
-    font-size: 1.8rem;
-  }
-
-  .game-screen--qna {
-    margin: 4rem 0;
-  }
-
-  .game-screen--ans li {
-    width: 10rem;
-  }
-}
-
 .game-screen--ans {
-  display: flex;
-  flex-wrap: wrap;
   list-style-type: none;
-  /* list-style: none; */
-  padding-bottom: 0.8rem;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
   border-bottom: 1px solid #dbdef0;
 }
 
 .game-screen--ans li {
-  width: 8rem;
-  height: 40px;
-  margin-bottom: 0.4rem;
+  width: 10rem;
+  height: 2rem;
   position: relative;
-  border: 1px solid #4d5b9e;
+  border: 0.5px solid #4d5b9e;
   border-radius: 0.5rem;
-  cursor: pointer;
+  /* cursor: pointer; */
+  margin-bottom: 0.5rem;
   margin-right: 0.5rem;
 }
 
@@ -144,6 +131,8 @@ ul {
   justify-content: center;
   align-items: center;
   color: #293264;
+  font-size: 0.8rem;
+  font-weight: 700;
 }
 
 .game-screen--ans input[type='radio'] {
@@ -155,3 +144,30 @@ ul {
   background: #d6dbf5;
   border-radius: 0.5rem;
 }
+
+/* --------------------------------------------------< desktop screen */
+
+@media (min-width: 640px) {
+  .game--question {
+    font-size: 1.6rem;
+  }
+
+  .game-screen--qna {
+    margin: 4rem 0;
+  }
+
+  .game-screen--ans {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .game-screen--ans li {
+    width: 10rem;
+    height: 2.5rem;
+    margin-right: 0.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+/* --------------------------------------------------< desktop screen */
