@@ -1,5 +1,4 @@
 
-import Svg from "./Components/SvgImages"
 import StartScreen from "./Components/StartScreen"
 import GameScreen from "./Components/GameScreen"
 import { useState } from "react"
@@ -13,7 +12,6 @@ function App() {
 
   return (
     <main>
-        {/* <Svg /> */}
         {
           start ?
           <StartScreen start={start} startGame={startGame} /> 

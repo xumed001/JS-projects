@@ -4,6 +4,13 @@ import he from "he"
 export default function GameScreen() {
     const [triviaData, setTriviaData] = useState(null)
     const [loading, setLoading] = useState(true)
+    const [gameAns, setGameAns] = useState({
+        answer0: '',
+        answer1: '',
+        answer2: '',
+        answer3: '',
+        answer4: ''
+    })
 
     useEffect(() => {
         fetch("https://opentdb.com/api.php?amount=5&category=15&difficulty=easy&type=multiple")
@@ -22,6 +29,14 @@ export default function GameScreen() {
         }
     }
 
+    function handleChange(event) {
+        setGameAns(iniData => ({
+            ...iniData,
+            [event.target.name]: event.target.value
+        }))
+    }
+    console.log(gameAns)
+
     const triviaQnA = triviaData?.map((item, index) => {
         const allAns = item.incorrect_answers
         allAns.push(item.correct_answer)
@@ -32,23 +47,31 @@ export default function GameScreen() {
                 <p className="game--question">{he.decode(item.question)}</p>
                 <ul className="game-screen--ans">
                     <li>
-                        <input type="radio" className="radio-ans" name={lableName} id="Choice1" value="ans1" />
-                        <label htmlFor="contactChoice1">{he.decode(allAns[0])}</label>
+                        <input onChange={handleChange} type="radio" name={lableName} value={gameAns.lableName} />
+                        <label>
+                            {he.decode(allAns[0])}
+                        </label>
                     </li>
 
                     <li>
-                        <input type="radio" className="radio-ans" name={lableName} id="Choice2" value="ans2" />
-                        <label htmlFor="contactChoice2">{he.decode(allAns[1])}</label>
+                        <input onChange={handleChange} type="radio" name={lableName} value={gameAns.lableName} />
+                        <label>
+                            {he.decode(allAns[1])}
+                        </label>
                     </li>
 
                     <li>
-                        <input type="radio" className="radio-ans" name={lableName} id="Choice3" value="ans3" />
-                        <label htmlFor="contactChoice3">{he.decode(allAns[2])}</label>
+                        <input onChange={handleChange} type="radio" name={lableName} value={gameAns.lableName} />
+                        <label>
+                            {he.decode(allAns[2])}
+                        </label>
                     </li>
                     
                     <li>
-                        <input type="radio" className="radio-ans" name={lableName} id="Choice4" value="ans4" />
-                        <label htmlFor="contactChoice4">{he.decode(allAns[3])}</label>
+                        <input onChange={handleChange} type="radio" name={lableName} value={gameAns.lableName} />
+                        <label>
+                            {he.decode(allAns[3])}
+                        </label>
                     </li>
                 </ul>
             </>

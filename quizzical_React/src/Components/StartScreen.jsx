@@ -8,7 +8,7 @@ export default function StartScreen(props) {
                 <h1 className="start-screen--header">Quizzical</h1>
                 <p className="start-screen--text">Test your trivia skills</p>
                 <button onClick={props.startGame} className="start-screen--button">
-                    Start Game
+                    Begin
                 </button>
             </div>
         </div>
