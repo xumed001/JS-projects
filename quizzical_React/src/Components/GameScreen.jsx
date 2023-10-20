@@ -2,6 +2,8 @@ import {useEffect, useState} from "react"
 import he from "he"
 
 export default function GameScreen() {
+    const URL = "https://opentdb.com/api.php?amount=5&category=15&difficulty=easy&type=multiple"
+    let uKey = 0
     const [triviaData, setTriviaData] = useState(null)
     const [loading, setLoading] = useState(true)
     const [gameAns, setGameAns] = useState({
@@ -13,62 +15,90 @@ export default function GameScreen() {
     })
 
     useEffect(() => {
-        fetch("https://opentdb.com/api.php?amount=5&category=15&difficulty=easy&type=multiple")
+        fetch(URL)
             .then((res) => res.json())
             .then((data) => {
                 setTriviaData(data.results)
                 setLoading(false)
             })
-            
     }, [])
 
-    function shuffle(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-          let j = Math.floor(Math.random() * (i + 1));
-          [array[i], array[j]] = [array[j], array[i]];
-        }
-    }
-
     function handleChange(event) {
+        const {name, value, checked} = event.target
         setGameAns(iniData => ({
             ...iniData,
-            [event.target.name]: event.target.value
+            [name]: value
         }))
-    }
-    console.log(gameAns)
+    }   
 
-    const triviaQnA = triviaData?.map((item, index) => {
+    const triviaAns = triviaData?.map((ans) => {
+        let randomIndex = Math.floor(Math.random() * 4)
+        const allAns = ans.incorrect_answers
+        allAns.splice(randomIndex, 0, `${ans.correct_answer}`)
+        return allAns
+    })
+
+    console.log(triviaAns[0][0])
+
+    const triviaQnA = triviaData?.map((item) => {
+        let randomIndex = Math.floor(Math.random() * 4)
         const allAns = item.incorrect_answers
-        allAns.push(item.correct_answer)
-        shuffle(allAns)
-        let lableName = `answer${index}`
+        allAns.splice(randomIndex, 0, `${item.correct_answer}`)
+
+        let lableName = `answer${uKey}`
+        uKey += 1
+
         return (
             <>
                 <p className="game--question">{he.decode(item.question)}</p>
                 <ul className="game-screen--ans">
                     <li>
-                        <input onChange={handleChange} type="radio" name={lableName} value={gameAns.lableName} />
+                        <input 
+                            onChange={handleChange} 
+                            type="radio" 
+                            name={lableName} 
+                            value={he.decode(allAns[0])} 
+                            checked={gameAns.lableName === he.decode(allAns[0])}
+                        />
                         <label>
                             {he.decode(allAns[0])}
                         </label>
                     </li>
 
                     <li>
-                        <input onChange={handleChange} type="radio" name={lableName} value={gameAns.lableName} />
+                        <input 
+                            onChange={handleChange} 
+                            type="radio" 
+                            name={lableName} 
+                            value={he.decode(allAns[1])} 
+                            checked={gameAns.lableName === he.decode(allAns[1])}
+                        />
                         <label>
                             {he.decode(allAns[1])}
                         </label>
                     </li>
 
                     <li>
-                        <input onChange={handleChange} type="radio" name={lableName} value={gameAns.lableName} />
+                        <input 
+                            onChange={handleChange} 
+                            type="radio" 
+                            name={lableName} 
+                            value={he.decode(allAns[2])} 
+                            checked={gameAns.lableName === he.decode(allAns[2])}
+                        />
                         <label>
                             {he.decode(allAns[2])}
                         </label>
                     </li>
                     
                     <li>
-                        <input onChange={handleChange} type="radio" name={lableName} value={gameAns.lableName} />
+                        <input 
+                            onChange={handleChange} 
+                            type="radio" 
+                            name={lableName} 
+                            value={he.decode(allAns[3])} 
+                            checked={gameAns.lableName === he.decode(allAns[3])}
+                        />
                         <label>
                             {he.decode(allAns[3])}
                         </label>
@@ -78,7 +108,8 @@ export default function GameScreen() {
         )
     })
 
-    // console.log(triviaData)
+    console.log(triviaData)
+    // console.log(gameAns)
 
     return (
         <div className="game-screen-main">

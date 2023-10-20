@@ -125,7 +125,7 @@ ul {
 }
 
 .game-screen--ans input[type='radio']:checked + label {
-  background: #cadff1;
+  background: #188aef;
   border-radius: 0.5rem;
 }
 
