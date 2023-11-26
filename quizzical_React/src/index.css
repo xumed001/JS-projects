@@ -70,36 +70,32 @@ ul {
 
 .game-screen--qna {
   margin: 2rem 0;
-
-  /* border: 1px solid red; */
 }
 
-.game--question {
+.game-screen--qna p {
+  margin: 1rem 0;
   color: #293264;
   font-family: Karla;
   font-size: 1.2rem;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  padding: 0.8rem 0;
 }
 
 .game-screen--ans {
   list-style-type: none;
-
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-
   border-bottom: 1px solid #dbdef0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .game-screen--ans li {
-  width: 90%;
-  height: 2rem;
+  width: 6rem;
+  height: 1.4rem;
+  border: 1px solid #293264;
   position: relative;
-  border: 1px solid #cbcde2;
   border-radius: 0.5rem;
-  /* cursor: pointer; */
   margin-bottom: 0.5rem;
   margin-right: 0.5rem;
 }
@@ -116,7 +112,8 @@ ul {
   align-items: center;
   color: #293264;
   font-size: 0.8rem;
-  font-weight: 700;
+  font-weight: 500;
+  cursor: pointer;
 }
 
 .game-screen--ans input[type='radio'] {
@@ -125,7 +122,7 @@ ul {
 }
 
 .game-screen--ans input[type='radio']:checked + label {
-  background: #188aef;
+  background: #d6dbf5;
   border-radius: 0.5rem;
 }
 
@@ -148,8 +145,9 @@ ul {
   }
 
   .game-screen--ans li {
-    width: 14rem;
-    height: 2.4rem;
+    width: 8rem;
+    padding: 0 10px;
+    height: 1.8rem;
     margin-right: 0.6rem;
     margin-bottom: 1.2rem;
   }

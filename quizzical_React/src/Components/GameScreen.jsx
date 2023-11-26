@@ -1,12 +1,14 @@
 import {useEffect, useState} from "react"
 import he from "he"
+import { nanoid } from 'nanoid'
 
 export default function GameScreen() {
-    const URL = "https://opentdb.com/api.php?amount=5&category=15&difficulty=easy&type=multiple"
+    const URL = "https://opentdb.com/api.php?amount=5&category=9&difficulty=easy&type=multiple"
     console.log('Component rendered')
     const [triviaData, setTriviaData] = useState(null)
     const [loading, setLoading] = useState(true)
-    let userAns = new Array(4)
+    let score = 0
+    let userAns = new Array(5).fill(null)
 
     useEffect(() => {
         console.log('Effect ran')
@@ -29,12 +31,11 @@ export default function GameScreen() {
     })
 
     function handleChange(event) {
-        console.log(event.target.value)
+        // console.log(event.target.value)
         userAns[event.target.name] = event.target.value
     }   
 
     function compareAns(a, b) {
-        let score = 0
         for(let i=0; i<a.length; i++) {
             if(a[i] === b[i]){
                 score+=1
@@ -44,6 +45,7 @@ export default function GameScreen() {
     }
 
     function checkAnswers(){
+        console.log(userAns)
         console.log(compareAns(userAns, correctAns))
     }
 
@@ -111,6 +113,7 @@ export default function GameScreen() {
     //         </>
     //     )
     // })
+    console.log(nanoid())
 
     return (
         <div className="game-screen-main">
@@ -119,52 +122,52 @@ export default function GameScreen() {
                     'Loading...'
                 ) : (
                     <div className="game-screen--qna">
-                        {triviaData.map((qanda, index) => <>
-                        <p key={qanda.correct_answer}>{he.decode(qanda.question)}</p>
+                        {triviaData?.map((qanda, index) => <>
+                        <p key={nanoid()}>{he.decode(qanda.question)}</p>
                         <ul className="game-screen--ans">
-                            <li>
+                            <li key={nanoid()}>
+                                <label>
+                                    {he.decode(triviaAns[index][0])}
+                                </label>
                                 <input 
                                     type="radio" 
                                     name={index}
                                     onChange={handleChange}
                                     value={he.decode(triviaAns[index][0])}
                                  />
-                                <label>
-                                    {he.decode(triviaAns[index][0])}
-                                </label>
                             </li>
-                            <li>
+                            <li key={nanoid()}>
+                                <label>
+                                    {he.decode(triviaAns[index][1])}
+                                </label>
                                 <input 
                                     type="radio" 
                                     name={index}
                                     onChange={handleChange}
                                     value={he.decode(triviaAns[index][1])}
                                 />
-                                <label>
-                                    {he.decode(triviaAns[index][1])}
-                                </label>
                             </li>
-                            <li>
+                            <li key={nanoid()}>
+                                <label>
+                                    {he.decode(triviaAns[index][2])}
+                                </label>
                                 <input 
                                     type="radio" 
                                     name={index}
                                     onChange={handleChange}
                                     value={he.decode(triviaAns[index][2])}
                                 />
-                                <label>
-                                    {he.decode(triviaAns[index][2])}
-                                </label>
                             </li>
-                            <li>
+                            <li key={nanoid()}>
+                                <label>
+                                    {he.decode(triviaAns[index][3])}
+                                </label>
                                 <input 
                                     type="radio" 
                                     name={index}
                                     onChange={handleChange}
                                     value={he.decode(triviaAns[index][3])}
                                 />
-                                <label>
-                                    {he.decode(triviaAns[index][3])}
-                                </label>
                             </li>
                         </ul>
                         </>)}
