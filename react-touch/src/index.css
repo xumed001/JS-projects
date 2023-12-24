@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+}
+
+.App {
+  height: 100vh;
+}
+
+.point {
+  color: aliceblue;
+  display: inline-block;
+  position: absolute;
+  border-radius: 50%;
+  width: 0.6rem;
+  height: 0.6rem;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  background-color: gray;
+  border-radius: 0.6rem;
+  margin-top: 0.2rem;
+  margin-left: 0.2rem;
+}
