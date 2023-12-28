@@ -3,11 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://api.fontshare.com/v2/css?f[]=array@700,400,600&display=swap" rel="stylesheet">
     <title>Snake Game</title>
+    <link rel="icon" type="image/svg+xml" href="./src/assets/snake-icon.svg">
+    <link rel="stylesheet" href="./src/index.css">
+    <script src="./src/main.js" defer></script>
 </head>
 <body>
     <main>
-        <h1>Test</h1>
+        <section class="scores">
+            <h2 id="score">000</h2>
+            <h2 id="highScore">000</h2>
+        </section>
+        <section class="game-border-1">
+            <div class="game-border-2">
+                <div class="game-border-3">
+                    <div id="game-board"></div>
+                </div>
+            </div>
+        </section>
     </main>
+    <h3 id="instruction-text">Press spacebar to start the game</h3>
+    <img id="logo" src="./src/assets/snakeLogo-1.png" alt="2d pixel art of a snake">
 </body>
 </html>
