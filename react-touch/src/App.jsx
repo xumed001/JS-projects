@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import ButtonRedo from './components/ButtonRedo';
+import ButtonUndo from './components/ButtonUndo';
 
 function App() {
   const [points, setPoints] = useState([])
@@ -34,8 +36,17 @@ function App() {
 
   return (
     <>
-      <button disabled={points.length == 0} onClick={handleUndo}>Undo</button>
-      <button disabled={store.length == 0} onClick={handleRedo}>Redo</button>
+      <ButtonRedo 
+        redoClick={handleRedo} 
+        disabled={store.length}
+      >Redo
+      </ButtonRedo>
+      <ButtonUndo
+        undoClick={handleUndo}
+        disabled={points.length}
+      >Undo
+      </ButtonUndo>
+      
       <div className='App' onClick={handleClick}>
         {points.map((point, idx) => (
           <div 
