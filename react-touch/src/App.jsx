@@ -37,24 +37,24 @@ function App() {
   return (
     <>
       <ButtonRedo 
-        redoClick={handleRedo} 
-        disabled={store.length}
+        onClick={handleRedo} 
+        disabled={store.length == 0}
       >Redo
       </ButtonRedo>
       <ButtonUndo
-        undoClick={handleUndo}
-        disabled={points.length}
+        onClick={handleUndo}
+        disabled={points.length == 0}
       >Undo
       </ButtonUndo>
-      
+
       <div className='App' onClick={handleClick}>
         {points.map((point, idx) => (
           <div 
           key={idx} 
           className='point' 
           style={{
-            left: point.x - 5 + 'px',
-            top: point.y - 5 + 'px',
+            left: point.x - 8 + 'px',
+            top: point.y - 8 + 'px',
             backgroundColor: color
           }}
           ></div>

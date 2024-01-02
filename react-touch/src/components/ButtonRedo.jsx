@@ -1,10 +1,9 @@
 /* eslint-disable react/prop-types */
 
-function ButtonRedo({children, redoClick, disabled}) {
+function ButtonRedo({children, ...rest}) {
   return (
-    <button onClick={redoClick} disabled={disabled == 0}>{children}</button>
+    <button {...rest}>{children}</button>
   )
 }
-
 
 export default ButtonRedo

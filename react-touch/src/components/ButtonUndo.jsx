@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 
-function ButtonUndo({children, undoClick, disabled}) {
+function ButtonUndo({children, ...rest}) {
   return (
-    <button onClick={undoClick} disabled={disabled == 0}>{children}</button>
+    <button {...rest}>{children}</button>
   )
 }
 
