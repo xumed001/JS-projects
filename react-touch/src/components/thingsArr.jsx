@@ -5,7 +5,7 @@ export default function Thing() {
     
     function addItem() {
         let addToArr = `Thing ${thingsArray.length + 1}`
-        setThingsArray([...thingsArray, addToArr])
+        setThingsArray(iniArr => [...iniArr, addToArr])
     }
     
     const thingsElements = thingsArray.map(thing => <p key={thing}>{thing}</p>)
