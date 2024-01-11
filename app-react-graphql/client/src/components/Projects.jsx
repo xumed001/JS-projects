@@ -1,7 +1,7 @@
 import Spinner from "./Spinner";
 import ProjectCard from "./ProjectCard";
 import { useQuery } from '@apollo/client'
-import { GET_PROJECTS } from '../queries/projectQuries'
+import { GET_PROJECTS } from '../queries/projectQueries'
 
 
 function Projects() {
