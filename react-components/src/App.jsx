@@ -1,5 +1,8 @@
-import Badge from "./components/Badge/Badge";
-import Banners from "./components/Banners/Banners";
+import Badge from "./components/Badges/Badge";
+import Banners from "./components/Banners/Banner";
+import Cards from "./components/Cards/Card";
+import { SlCloudUpload } from "react-icons/sl";
+
 
 function App() {
 
@@ -42,7 +45,21 @@ function App() {
       </div>
       <hr />
 
-      
+      <h2>Cards</h2>
+      <div className="cards">
+        <Cards 
+          icon={<SlCloudUpload className="card--icon" />}
+          title={'Easy Deployment'} 
+          text={'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.'}
+          />
+        <Cards 
+          icon={<SlCloudUpload className="card--icon" />}
+          title={'Easy Deployment'} 
+          text={'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.'}
+          />
+      </div>
+      <hr />
+
     </div>
   )
 }
