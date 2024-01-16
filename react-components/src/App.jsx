@@ -60,6 +60,12 @@ function App() {
       </div>
       <hr />
 
+      <h2>Testimonials</h2>
+      <div className="testm">
+
+      </div>
+      <hr />
+      
     </div>
   )
 }
