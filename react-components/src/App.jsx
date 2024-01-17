@@ -2,7 +2,9 @@ import Badge from "./components/Badges/Badge";
 import Banners from "./components/Banners/Banner";
 import Cards from "./components/Cards/Card";
 import { SlCloudUpload } from "react-icons/sl";
-
+import Testimonial from "./components/Testimonials/Testimonial";
+import catImg from './assets/cat-protrait.jpg'
+import smCatImg from './assets/cat-protrait-sm.jpg'
 
 function App() {
 
@@ -62,10 +64,16 @@ function App() {
 
       <h2>Testimonials</h2>
       <div className="testm">
-
+        <Testimonial 
+          img={{catImg, smCatImg}} 
+          alt={"portrait of a cat"} 
+          text={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed urna nulla vitae laoreet augue. Amet feugiat est integer dolor auctor adipiscing nunc urna, sit.'}
+          fullName={'Meow Andersons'}
+          position={'Workcation, CTO'}
+        />
       </div>
       <hr />
-      
+
     </div>
   )
 }
