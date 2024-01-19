@@ -11,7 +11,7 @@ function Banners({ status, title, text }) {
             return <FaExclamationTriangle className="icon" />
         case 'error':
             return <FaCircleXmark className="icon" />
-        case 'neutral':
+        case 'info':
             return <FaInfoCircle className="icon" />
     }
   }

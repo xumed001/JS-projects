@@ -1,12 +1,29 @@
+import { useState } from "react";
 import Badge from "./components/Badges/Badge";
 import Banners from "./components/Banners/Banner";
 import Cards from "./components/Cards/Card";
-import { SlCloudUpload } from "react-icons/sl";
+import { SlCloudUpload, SlCloudDownload } from "react-icons/sl";
 import Testimonial from "./components/Testimonials/Testimonial";
 import catImg from './assets/cat-protrait.jpg'
 import smCatImg from './assets/cat-protrait-sm.jpg'
+import Toast from "./components/Toasts/Toast";
 
 function App() {
+  const popUps = ['Success', 'Warning', 'Error', 'Info']
+  const [toastOpen, setToastOpen] = useState(false)
+  const [toastType, setToastType] = useState('')
+
+  const randomIdx = () => {
+    return Math.floor(Math.random() * popUps.length)
+  }
+
+  function toastClick() {
+    setToastType(popUps[randomIdx()])
+    setToastOpen(!toastOpen)
+    setTimeout(() => {
+      setToastOpen(prev => !prev)
+    }, 3000);
+  }
 
   return (
     <div className="App">
@@ -36,12 +53,12 @@ function App() {
           text={'Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, suscipit.'}
           />
         <Banners 
-          status={'neutral'}
+          status={'info'}
           title={'Update available'} 
           text={'Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis id delectus possimus labore voluptate aspernatur laboriosam voluptates ex. In, harum.'}
           />
         <Banners 
-          status={'neutral'}
+          status={'info'}
           title={'Update available'} 
           />
       </div>
@@ -55,7 +72,7 @@ function App() {
           text={'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.'}
           />
         <Cards 
-          icon={<SlCloudUpload className="card--icon" />}
+          icon={<SlCloudDownload className="card--icon" />}
           title={'Easy Deployment'} 
           text={'Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.'}
           />
@@ -71,6 +88,19 @@ function App() {
           fullName={'Meow Andersons'}
           position={'Workcation, CTO'}
         />
+      </div>
+      <hr />
+
+      <h2>Toast Popups</h2>
+      <div className="toast">
+        <div className="toast--container">
+          <button disabled={toastOpen} onClick={toastClick}>Display Popup</button>
+          <Toast 
+            open={toastOpen} 
+            title={toastType}
+          />
+        </div>
+
       </div>
       <hr />
 
